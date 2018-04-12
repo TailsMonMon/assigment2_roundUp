@@ -14,20 +14,29 @@ namespace assigment2_roundUp {
 
                 //  Input
                 Console.Write("Skriv ett tal med många decimaler: ");
-                double userDeci = Convert.ToDouble(Console.ReadLine()); // Input from user is converted to a double
+                string userInput = Console.ReadLine();
+
+                if(userInput.Contains('.')) {
+                    Console.WriteLine("Använd komma istället för punkt, tack.");
+                    Console.WriteLine();    // Just to get some space in the output
+                }
+                else {
+                    double userDeci = Convert.ToDouble(userInput);
+                    // decimal userDeci = Convert.ToDecimal(Console.ReadLine()); // Input from user is converted to a double
 
                 Console.Write("Skriv antalet decimaler du vill runda av till: ");
                 int userRoundUp = Convert.ToInt32(Console.ReadLine());  // Input from user is converted to a int
 
-                Console.WriteLine();    // Just to get some space in the output
+                Console.WriteLine();    // More space.. 
 
-                //  Output
+                    //  Output
                 Console.WriteLine("Din avrundning blir: {0}", Math.Round(userDeci, userRoundUp));
                 Console.WriteLine("En förbestämd avrundning: {0}", Math.Round(userDeci, 3));
                 Console.WriteLine();
                 Console.WriteLine();    // More space.. 
-
-            } while(true); 
+                }
+            } while(true);
+            
         }
     }
 }
