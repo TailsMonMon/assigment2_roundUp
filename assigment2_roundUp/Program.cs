@@ -9,11 +9,12 @@ namespace assigment2_roundUp {
         static void Main(string[] args) {
 
             //      DEFINING DATA
-            double userDeci = 0;
-            int userRoundUp = -1;
+            double userDeci = 0;    // Users decimal number
+            int userRoundUp = -1;   // Users numbers of wanted decimals
 
             //      INTRO
-            Console.WriteLine("Hejsan! Nu ska vi runda av tal!");
+            Console.WriteLine("=== Avrundaren ===");
+            Console.WriteLine("Här kan ni runda av vilket decimal-tal som helst");
             
 
             //      INPUT
@@ -32,6 +33,11 @@ namespace assigment2_roundUp {
                 try {
                     Console.Write("Skriv antalet decimaler du vill runda av till: ");
                     userRoundUp = Convert.ToInt32(Console.ReadLine());  // Input from user is converted to a int
+                    if(userRoundUp<0) {
+                        userRoundUp = -1;
+                        Console.WriteLine();
+                        Console.WriteLine("Ni kan inte ha ett negativt antal decimaler");
+                    }
                 }
                 catch(FormatException) {
                     Console.WriteLine();
@@ -39,12 +45,11 @@ namespace assigment2_roundUp {
                 }
             } while(userRoundUp == -1);
 
-            
-            //      OUTPUT
-            Console.WriteLine(); 
-            Console.WriteLine("Din avrundning blir: {0}", Math.Round(userDeci, userRoundUp));
-            Console.WriteLine("En förbestämd avrundning: {0}", Math.Round(userDeci, 3));
 
+            //      OUTPUT
+                Console.WriteLine();
+                Console.WriteLine("Din avrundning blir: {0}", Math.Round(userDeci, userRoundUp));
+                Console.WriteLine("En förbestämd avrundning: {0}", Math.Round(userDeci, 3));
             Console.ReadLine();
         }
     }
